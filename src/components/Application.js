@@ -51,8 +51,12 @@ const appointments = {
 export default function Application(props) {
 
   //useState hook
-  const [day, setDay] = useState("Monday");
-  const [days, setDays] = useState([]);
+  const [state, setState] = useState({
+    day: "Monday",
+    days: [],
+    // you may put the line below, but will have to remove/comment hardcoded appointments variable
+    // appointments: {}
+  });
 
   useEffect(()=>{
     const dayURL = "http://localhost:8001/api/days";
@@ -61,6 +65,14 @@ export default function Application(props) {
       setDays([...response.data]);
     })
   },[]);
+
+  const setDay = day => {
+    console.log("day from setDay:", day);
+    return setState({ ...state, day:day })};
+
+  const setDays = (days) => {
+    setState(prev => setState({...prev, days}));
+  }
 
   
   return (
@@ -74,8 +86,8 @@ export default function Application(props) {
       <hr className="sidebar__separator sidebar--centered" />
       <nav className="sidebar__menu">
         <DayList
-          days={days}
-          value={day}
+          days={state.days}
+          value={state.day}
           onChange={setDay}
         />
        </nav>
@@ -86,7 +98,6 @@ export default function Application(props) {
       />
       </section>
       <section className="schedule">
-        {/* Replace this with the schedule elements durint the "The Scheduler" activity. */}
         {Object.values(appointments).map(appointment =>{
           // return <Appointment key={appointment.id} id={appointment.id} time={appointment.time} interview={appointment.interview} />
           //If we want every key in an object to become a prop for a component, we can spread the object into the props definition
