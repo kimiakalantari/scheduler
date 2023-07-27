@@ -46,6 +46,34 @@ export default function Application(props) {
     })
   },[]);
 
+    //function to book an interview
+    function bookInterview(id, interview) {
+      // console.log(id, interview);
+      const appointment = {
+        ...state.appointments[id],
+        interview: { ...interview }
+      };
+  
+      const appointments = {
+        ...state.appointments,
+        [id]: appointment
+      };
+  
+      const url =`http://localhost:8001/api/appointments/${id}`;
+  
+      let req={
+        url,
+        method: 'PUT',
+        data: appointment
+      }
+      return axios(req).then(response => {
+        console.log("response from axios put=====>", response.data);
+        setState({...state, appointments})
+      })
+  
+  
+    }
+
   const appointments = getAppointmentsForDay(state, state.day);
   const schedule = appointments.map((appointment) => {
   const interview = getInterview(state, appointment.interview);
@@ -58,6 +86,7 @@ export default function Application(props) {
       time={appointment.time}
       interview={interview}
       interviewers={interviewers}
+      bookInterview={bookInterview}
     />
   );
 });
