@@ -93,14 +93,9 @@ export default function useApplicationData() {
       const url =`http://localhost:8001/api/appointments/${id}`;
 
       //to save the data to the end API
-      let req={
-        url,
-        method: 'PUT',
-        data: appointment
-      }
-      return axios(req).then(response => {
-        // console.log("response from axios put=====>", response.data);
-        setState({...state, appointments,days})
+      
+      return axios.put(url, appointment).then(() => {
+        setState({...state, appointments,days});
       })
     }
 
@@ -128,14 +123,8 @@ export default function useApplicationData() {
 
     const url =`http://localhost:8001/api/appointments/${id}`;
 
-    let req={
-      url,
-      method: 'DELETE',
-      data:appointment
-    }
-    return axios(req).then(response =>{
-      console.log("response from delete axios===>",response);
-      setState({...state, appointments, days});
+    return axios.put(url, appointment).then(() => {
+      setState({...state, appointments,days});
     })
 
   }
