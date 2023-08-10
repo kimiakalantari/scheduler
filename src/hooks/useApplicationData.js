@@ -123,7 +123,7 @@ export default function useApplicationData() {
 
     const url =`http://localhost:8001/api/appointments/${id}`;
 
-    return axios.put(url, appointment).then(() => {
+    return axios.delete(url, appointment).then(() => {
       setState({...state, appointments,days});
     })
 
