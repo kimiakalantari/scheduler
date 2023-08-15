@@ -38,18 +38,15 @@ npm test
 npm run storybook
 ```
 ### Daily view
-!['booked-slots-available'](https://github.com/nhussaini/lighthouse-labs-scheduler/blob/master/docs/appointment_page.png?raw=true)
+!['booked-slots-available'](https://github.com/kimiakalantari/scheduler/blob/master/docs/daily%20view.png?raw=true)
 _By selecting a weekday , a user can see booked appointments and available slots for each day._
 
 ### Book an Appointment
-!['book-an-appointment'](https://github.com/nhussaini/lighthouse-labs-scheduler/blob/master/docs/new_appointment.png?raw=true)
+!['book-an-appointment'](https://github.com/kimiakalantari/scheduler/blob/master/docs/book.png?raw=true)
 _A user can choose any empty slot to book an appointment
 
-### No slot available for a specific day
-!['book-an-appointment'](https://github.com/nhussaini/lighthouse-labs-scheduler/blob/master/docs/no_spot_available.png?raw=true)
-
 ### Deleting an appointment
-!['book-an-appointment'](https://github.com/nhussaini/lighthouse-labs-scheduler/blob/master/docs/delete_appointment.png?raw=true)
+!['book-an-appointment'](https://github.com/kimiakalantari/scheduler/blob/master/docs/delete.png?raw=true)
 _When a user wants to delete an appointment, there will be a confirmation popup
 
 
